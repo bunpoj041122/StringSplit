@@ -1,0 +1,2 @@
+# StringSplit
+Global $sDr, $sPa, $sFn, $sEx $sFileFullPath = "d:\path\blah blah blah.foo foo.bar bar.extension" Exit MsgBox( 0, "", _PathSplit($sFileFullPath , $sDr, $sPa, $sFn, $sEx)[4] ) Original function (less expensive??):  Func _FileGetExt($sFn) ; Parse EXTension from [d:\path\]filename.EXTension     Local $sExt = "", $aA     If StringInStr($sFn, ".") Then         If Not StringInStr(FileGetAttrib($sFn), "D") Then             $aA = StringSplit($sFn, ".")             $sExt = $aA[$aA[0]]         EndIf     EndIf     Return $sExt EndFunc  ;==>_FileGetExt
